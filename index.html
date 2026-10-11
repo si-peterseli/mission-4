@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script defer src="script.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Remixicon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+  
+<header class="header">
+  <div class="header__top">
+    <div class="user-profile">
+      <img class="user-profile__avatar" src="imgs/avatar.png" alt="Avatar" />
+      <div class="user-profile__info">
+        <h3 class="user-profile__name">Mahesa Febrian</h3>
+        <p class="user-profile__role">Fullstack Developer</p>
+      </div>
+    </div>
+
+    <div class="header-widget">
+      <p class="header-widget__time">19:00</p>
+      <p class="header-widget__date">8 Oktober 2026</p>
+    </div>
+  </div>
+  <div class="header__content">
+    <h1 class="header__title">To Do List <span class="hyphen">-</span> <span class="header__title-highlight">Mission 4</span></h1>
+    <p class="header__description">Kelola tugas-tugas secara terencana dan sistematis.</p>
+  </div>
+</header>
+
+<main class="main">
+  <form class="todo-form">
+    <button class="close-form-btn">
+      <i class="ri-close-line"></i>
+    </button>
+    <h2 class="todo-form__title">Tulis Agenda</h2>
+
+    <div class="form-group">
+      <label class="form-group__label">Tugas</label>
+      <textarea class="form-group__textarea" placeholder="Apa yang perlu dikerjakan hari ini?" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <h5 class="form-group__title">Prioritas</h5>
+      <div class="priority-selector">
+        <label class="priority-selector__item priority-selector__item--low">
+          <input type="radio" name="priority" class="priority-selector__input" value="low" checked />
+          <span class="priority-selector__label">Low</span>
+        </label>
+        <label class="priority-selector__item priority-selector__item--medium">
+          <input type="radio" name="priority" class="priority-selector__input" value="medium" />
+          <span class="priority-selector__label">Medium</span>
+        </label>
+        <label class="priority-selector__item priority-selector__item--high">
+          <input type="radio" name="priority" class="priority-selector__input" value="high" />
+          <span class="priority-selector__label">High</span>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <h5 class="form-group__title">tenggat</h5>
+      <input type="datetime-local" class="form-group__input form-group__input--date" />
+    </div>
+
+    <button type="submit" class="btn submit-btn">
+      Tambahkan Tugas <i class="ri-arrow-right-line"></i>
+    </button>
+  </form>
+
+  <div class="todo-list todo-list--left">
+    <section class="task-group task-group--overdue">
+      <div class="task-group__header">
+        <h2 class="task-group__title">Terlambat</h2>
+        <span class="task-group__badge">1</span>
+      </div>
+
+      <p class="empty-state">Belum ada tugas...</p>
+
+      <div class="task-group__content">
+        <article class="task-item task-item--overdue">
+          <div class="task-item__priority-mark priority-mark--high"></div>
+          
+          <label class="task-checkbox">
+            <input type="checkbox" class="task-checkbox__input" />
+            <span class="task-checkbox__custom">
+              <i class="ri-check-line task-checkbox__icon"></i>
+            </span>
+          </label>
+
+          <div class="task-item__details">
+            <h4 class="task-item__title">Kirim laporan mingguan ke mentor</h4>
+            <div class="task-item__meta">
+              <span class="priority-badge priority-badge--high">High</span>
+              <div class="task-item__dot"></div>
+              <div class="task-item__date">
+                5 Oktober 2026
+                <div class="duedate-tooltip">Tenggat waktu</div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-delete">
+            <i class="ri-close-large-line btn-delete__icon"></i>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="task-group task-group--done">
+      <div class="task-group__header">
+        <h2 class="task-group__title">Selesai</h2>
+        <span class="task-group__badge">1</span>
+      </div>
+
+      <p class="empty-state">Belum ada tugas...</p>
+
+      <div class="task-group__content">
+        <article class="task-item">
+          <div class="task-item__priority-mark priority-mark--medium"></div>
+          
+          <label class="task-checkbox">
+            <input type="checkbox" class="task-checkbox__input" checked />
+            <span class="task-checkbox__custom">
+              <i class="ri-check-line task-checkbox__icon"></i>
+            </span>
+          </label>
+
+          <div class="task-item__details">
+            <h4 class="task-item__title">Selesaikan layout halaman utama</h4>
+            <div class="task-item__meta">
+              <span class="priority-badge priority-badge--medium">Medium</span>
+              <div class="task-item__dot"></div>
+              <p class="task-item__date">Kamis, 8 Oktober 2026</p>
+            </div>
+          </div>
+
+          <button type="button" class="btn-delete">
+            <i class="ri-close-large-line btn-delete__icon"></i>
+          </button>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div class="todo-list todo-list--right">
+    <section class="task-group task-group--todo">
+      <div class="task-group__header">
+        <h2 class="task-group__title">To Do</h2>
+        <span class="task-group__badge">1</span>
+      </div>
+
+      <p class="empty-state">Belum ada tugas...</p>
+      <div class="task-group__content">
+        <article class="task-item task-item">
+          <div class="task-item__priority-mark priority-mark--low"></div>
+          
+          <label class="task-checkbox">
+            <input type="checkbox" class="task-checkbox__input" />
+            <span class="task-checkbox__custom">
+              <i class="ri-check-line task-checkbox__icon"></i>
+            </span>
+          </label>
+
+          <div class="task-item__details">
+            <h4 class="task-item__title">Install VS Code &amp; Live Server</h4>
+            <div class="task-item__meta">
+              <span class="priority-badge priority-badge--low">Low</span>
+              <div class="task-item__dot"></div>
+              <p class="task-item__date">Kamis, 8 Oktober 2026</p>
+            </div>
+          </div>
+
+          <button type="button" class="btn-delete">
+            <i class="ri-close-large-line btn-delete__icon"></i>
+          </button>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <button class="btn open-form-btn">
+    <i class="ri-add-line"></i>
+    Tambah Tugas
+  </button>
+</main>
+
+<footer class="footer">
+  <p class="footer__warning">Hapus seluruh daftar akan mengosongkan semua kolom.</p>
+  <div class=footer__btn-container>
+    <div class="btn filter-btn">
+      <i class="ri-filter-line"></i> Filter
+
+      <div class="filter-btn__tooltip">
+        <button class="btn prev-btn">
+          <i class="ri-arrow-left-line"></i>
+        </button>
+        <input type="date" class="filter-date" />
+        <button class="btn next-btn">
+          <i class="ri-arrow-right-line"></i>
+        </button>
+        <button class="btn today-btn">Hari ini</button>
+        <button class="btn date-reset-btn">Reset</button>
+      </div>
+    </div>
+    <button class="btn clear-all-btn">Hapus Semua</button>
+  </div>
+</footer>
+
+</body>
+</html>
