@@ -37,8 +37,6 @@ const dateResetBtn = document.querySelector('.date-reset-btn');
 // Footer
 const clearAllBtn = document.querySelector('.clear-all-btn');
 
-const ONEHOUR = 1000 * 60 * 60;
-
 // Default todos
 const todos = [
   {
